@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga;
+package com.lingga_10119294.tugas_sensor;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.uts_10119294_lingga", appContext.getPackageName());
+        assertEquals("com.lingga_10119294.tugas_sensor_10119294", appContext.getPackageName());
     }
 }

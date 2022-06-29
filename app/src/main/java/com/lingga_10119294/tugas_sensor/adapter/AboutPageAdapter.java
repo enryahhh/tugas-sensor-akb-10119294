@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.adapter;
+package com.lingga_10119294.tugas_sensor.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.uts_10119294_lingga.models.ModelObject;
+import com.lingga_10119294.tugas_sensor.models.ModelObject;
 
-import java.util.List;
 /*
 * NIM : 10119294
 * NAMA : Lingga Juliansyah

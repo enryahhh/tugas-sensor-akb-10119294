@@ -1,18 +1,17 @@
-package com.example.uts_10119294_lingga.views.fragments;
+package com.lingga_10119294.tugas_sensor.views.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.uts_10119294_lingga.R;
-import com.example.uts_10119294_lingga.adapter.AboutPageAdapter;
-import com.example.uts_10119294_lingga.databinding.FragmentNotificationsBinding;
+import com.lingga_10119294.tugas_sensor.R;
+import com.lingga_10119294.tugas_sensor.adapter.AboutPageAdapter;
+import com.lingga_10119294.tugas_sensor.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
     /*

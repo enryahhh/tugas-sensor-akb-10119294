@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/tugas-sensor/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/tugas-sensor/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.3786231884057971" />
+        <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/tugas-sensor/app/src/main/res/layout/fragment_dashboard.xml" value="0.3786231884057971" />
+        <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/tugas-sensor/app/src/main/res/layout/fragment_home.xml" value="0.3786231884057971" />
+        <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/tugas-sensor/app/src/main/res/layout/fragment_maps.xml" value="0.3786231884057971" />
+        <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/tugas-sensor/app/src/main/res/layout/splash_screen.xml" value="0.3786231884057971" />
+        <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/tugas-sensor/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3984375" />
         <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/uts_10119294_lingga/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1045" />
         <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/uts_10119294_lingga/app/src/main/res/drawable/bg_gradient.xml" value="0.1045" />
         <entry key="..\:/KULIAH/Semester 6/AKB(Mobile)/uts_10119294_lingga/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.1045" />

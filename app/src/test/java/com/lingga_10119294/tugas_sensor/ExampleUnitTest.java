@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga;
+package com.lingga_10119294.tugas_sensor;
 
 import org.junit.Test;
 

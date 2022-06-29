@@ -1,6 +1,6 @@
-package com.example.uts_10119294_lingga.models;
+package com.lingga_10119294.tugas_sensor.models;
 
-import com.example.uts_10119294_lingga.R;
+import com.lingga_10119294.tugas_sensor.R;
 
 public enum ModelObject {
     /*

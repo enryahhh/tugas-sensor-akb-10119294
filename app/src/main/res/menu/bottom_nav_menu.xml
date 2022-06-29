@@ -7,9 +7,9 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_map"
         android:icon="@drawable/ic_baseline_sticky_note_2_24"
-        android:title="Notes" />
+        android:title="Map" />
 
     <item
         android:id="@+id/navigation_notifications"

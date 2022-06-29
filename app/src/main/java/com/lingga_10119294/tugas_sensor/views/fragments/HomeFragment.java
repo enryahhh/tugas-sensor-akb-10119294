@@ -1,14 +1,13 @@
-package com.example.uts_10119294_lingga.views.fragments;
+package com.lingga_10119294.tugas_sensor.views.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import com.example.uts_10119294_lingga.databinding.FragmentHomeBinding;
+import com.lingga_10119294.tugas_sensor.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
     /*

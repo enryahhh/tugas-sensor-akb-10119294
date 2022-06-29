@@ -1,12 +1,13 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.uts_10119294_lingga"
+        applicationId "com.lingga_10119294.tugas_sensor"
         minSdk 23
         targetSdk 31
         versionCode 1
@@ -33,6 +34,8 @@ android {
 dependencies {
     def nav_version = "2.4.2"
 
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

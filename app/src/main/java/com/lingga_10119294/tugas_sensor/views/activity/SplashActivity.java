@@ -1,11 +1,11 @@
-package com.example.uts_10119294_lingga.views.activity;
+package com.lingga_10119294.tugas_sensor.views.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.uts_10119294_lingga.MainActivity;
+import com.lingga_10119294.tugas_sensor.MainActivity;
 /*
  * NIM : 10119294
  * NAMA : Lingga Juliansyah
