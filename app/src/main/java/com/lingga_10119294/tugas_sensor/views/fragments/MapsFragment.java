@@ -21,6 +21,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -29,8 +30,20 @@ import com.lingga_10119294.tugas_sensor.R;
 public class MapsFragment extends Fragment {
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient client;
-    private OnMapReadyCallback callback = new OnMapReadyCallback() {
+    private final LatLng BASO_MAS_TONI = new LatLng(-6.973609380832971, 107.61827310265045);
+    private final LatLng MIXUE_BJGSG = new LatLng(-6.978719753426812, 107.63443491239366);
+    private final LatLng BUBUR_PASIGARAN = new LatLng(-6.984219805829166, 107.62222012404204);
+    private final LatLng BASO_MAS_TRI = new LatLng(-6.9830590389147815, 107.6116844073088);
+    private final LatLng TEPUS_COFFE = new LatLng(-6.972912429903476, 107.61788544513107);
 
+    private Location location;
+    private Marker markerBMT;
+    private Marker markerMBS;
+    private Marker markerBP;
+    private Marker markerBTRI;
+    private Marker markerCFT;
+
+    private OnMapReadyCallback callback = new OnMapReadyCallback() {
         /**
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
@@ -42,10 +55,22 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-//            LatLng sydney = new LatLng(-34, 151);
-//            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//            getCurrentLocation();
+                LatLng lokasi = new LatLng(location.getLatitude(),location.getLongitude());
+                MarkerOptions options = new MarkerOptions().position(lokasi).title("Lokasi Saat Ini");
+                googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lokasi,17));
+                googleMap.addMarker(options);
+            markerBMT = showMarkerResto(BASO_MAS_TONI,googleMap,"BASO MAS TONI");
+            markerBP = showMarkerResto(BUBUR_PASIGARAN,googleMap,"BUBUR PASIGARAN");
+            markerMBS = showMarkerResto(MIXUE_BJGSG,googleMap,"MIXUE BOJONGSOANG");
+            markerBTRI = showMarkerResto(BASO_MAS_TRI,googleMap,"BASO MAS TRI");
+            markerCFT = showMarkerResto(TEPUS_COFFE,googleMap,"TEPUS COFFE");
+
+            markerBMT.setTag(0);
+            markerBP.setTag(0);
+            markerMBS.setTag(0);
+            markerBTRI.setTag(0);
+            markerCFT.setTag(0);
         }
     };
 
@@ -81,21 +106,19 @@ public class MapsFragment extends Fragment {
         Task<Location> task = client.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
-            public void onSuccess(Location location) {
-                if(location != null){
-                    mapFragment.getMapAsync(new OnMapReadyCallback() {
-                        @Override
-                        public void onMapReady(@NonNull GoogleMap googleMap) {
-                            LatLng lokasi = new LatLng(location.getLatitude(),location.getLongitude());
-                            MarkerOptions options = new MarkerOptions().position(lokasi).title("Lokasi Saat Ini");
-                            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lokasi,17));
-                            googleMap.addMarker(options);
-                        }
-                    });
+            public void onSuccess(Location location2) {
+                if(location2 != null){
+                    location = location2;
+                    mapFragment.getMapAsync(callback);
                 }
             }
         });
+    }
+
+    private Marker showMarkerResto(LatLng position2,GoogleMap map,String title2){
+        return map.addMarker(new MarkerOptions()
+                .position(position2)
+                .title(title2));
     }
 
 }
