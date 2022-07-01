@@ -3,6 +3,11 @@ package com.lingga_10119294.tugas_sensor.models;
 import com.google.android.gms.maps.model.LatLng;
 
 public class FavoriteResto {
+    /*
+     * NIM : 10119294
+     * NAMA : Lingga Juliansyah
+     * Kelas : IF-7
+     * */
     private LatLng coordinate;
     private String title;
 
