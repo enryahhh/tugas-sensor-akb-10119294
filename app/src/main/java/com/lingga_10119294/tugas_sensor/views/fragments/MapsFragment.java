@@ -31,7 +31,11 @@ import com.lingga_10119294.tugas_sensor.models.FavoriteResto;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+ * NIM : 10119294
+ * NAMA : Lingga Juliansyah
+ * Kelas : IF-7
+ * */
 public class MapsFragment extends Fragment {
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient client;
