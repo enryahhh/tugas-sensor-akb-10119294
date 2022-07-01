@@ -20,16 +20,23 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.lingga_10119294.tugas_sensor.R;
+import com.lingga_10119294.tugas_sensor.models.FavoriteResto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapsFragment extends Fragment {
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient client;
+    private List<FavoriteResto> fvr = new ArrayList<>();
+
     private final LatLng BASO_MAS_TONI = new LatLng(-6.973609380832971, 107.61827310265045);
     private final LatLng MIXUE_BJGSG = new LatLng(-6.978719753426812, 107.63443491239366);
     private final LatLng BUBUR_PASIGARAN = new LatLng(-6.984219805829166, 107.62222012404204);
@@ -37,11 +44,6 @@ public class MapsFragment extends Fragment {
     private final LatLng TEPUS_COFFE = new LatLng(-6.972912429903476, 107.61788544513107);
 
     private Location location;
-    private Marker markerBMT;
-    private Marker markerMBS;
-    private Marker markerBP;
-    private Marker markerBTRI;
-    private Marker markerCFT;
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
         /**
@@ -58,19 +60,9 @@ public class MapsFragment extends Fragment {
                 LatLng lokasi = new LatLng(location.getLatitude(),location.getLongitude());
                 MarkerOptions options = new MarkerOptions().position(lokasi).title("Lokasi Saat Ini");
                 googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lokasi,17));
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lokasi,13.7f));
                 googleMap.addMarker(options);
-            markerBMT = showMarkerResto(BASO_MAS_TONI,googleMap,"BASO MAS TONI");
-            markerBP = showMarkerResto(BUBUR_PASIGARAN,googleMap,"BUBUR PASIGARAN");
-            markerMBS = showMarkerResto(MIXUE_BJGSG,googleMap,"MIXUE BOJONGSOANG");
-            markerBTRI = showMarkerResto(BASO_MAS_TRI,googleMap,"BASO MAS TRI");
-            markerCFT = showMarkerResto(TEPUS_COFFE,googleMap,"TEPUS COFFE");
-
-            markerBMT.setTag(0);
-            markerBP.setTag(0);
-            markerMBS.setTag(0);
-            markerBTRI.setTag(0);
-            markerCFT.setTag(0);
+                showMarkerResto(googleMap);
         }
     };
 
@@ -88,6 +80,12 @@ public class MapsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         client = LocationServices.getFusedLocationProviderClient(getActivity());
+        fvr.add(new FavoriteResto(BASO_MAS_TONI,"Mie Bakso Pak Toni tea"));
+        fvr.add(new FavoriteResto(BUBUR_PASIGARAN,"BUBUR AYAM PASIGARAN"));
+        fvr.add(new FavoriteResto(MIXUE_BJGSG,"Mixue Bojongsoang"));
+        fvr.add(new FavoriteResto(BASO_MAS_TRI,"Mie Ayam Bakso Mas Tri"));
+        fvr.add(new FavoriteResto(TEPUS_COFFE,"Tepus Coffee"));
+
         mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
@@ -115,10 +113,21 @@ public class MapsFragment extends Fragment {
         });
     }
 
-    private Marker showMarkerResto(LatLng position2,GoogleMap map,String title2){
-        return map.addMarker(new MarkerOptions()
-                .position(position2)
-                .title(title2));
+    private void showMarkerResto(GoogleMap map){
+        for (int i = 0; i < fvr.size(); i++) {
+
+            // below line is use to add marker to each location of our array list.
+            map.addMarker(
+                    new MarkerOptions()
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                            .position(fvr.get(i).getCoordinate()).title(fvr.get(i).getTitle()));
+
+            // below lin is use to zoom our camera on map.
+//            map.animateCamera(CameraUpdateFactory.zoomTo(20));
+
+            // below line is use to move our camera to the specific location.
+//            map.moveCamera(CameraUpdateFactory.newLatLng(fvr.get(i).getCoordinate()));
+        }
     }
 
 }
